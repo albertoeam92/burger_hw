@@ -17,12 +17,19 @@ var orm = {
 
 	        update:  function updateOne() {
 
-                connection.query('UPDATE burger_db.burger SET Name = "?", Devour = ?, Date = NOW() WHERE idburger = ?', function(err, data){
-                	if(err) throw err;
-                	res.send('placeholder');
+                connection.query('UPDATE burger_db.burger SET Name = "?", Devour = ?, Date = NOW() WHERE idburger = ?', function (err, data) {
+                    if (err) throw err;
+                    res.send('placeholder');
+                });
+            },
+
+	        delete: function deleteOne(){
+
+				connection.query('DELETE FROM  burger_db.burger WHERE id=? ', function(err, data){
+					if(err) throw err;
+					res.send('placeholder');
 				});
-               };
-	        }
+			}
 
 
 };
