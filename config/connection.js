@@ -5,7 +5,14 @@ var connection = mysql.createConnection({
   password : '8725183sd',
   database : 'burger_db'
 });
- 
-connection.connect();
-	
-module.exports = connection;
+
+connection.connect(function(err) {
+    if (err) {
+        console.error('Error connecting: ' + err.stack);
+        return;
+    }
+    console.log('Connected as ID ' + connection.threadId);
+});
+
+module.exports = connection; 
+
